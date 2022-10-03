@@ -1,0 +1,7 @@
+var x = 1;
+var sum = 0;
+do {
+    sum += x;
+    x++
+} while (x <= 100);
+document.write("1~100까지 합 : <b>" + sum + "</b>")
