@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>   
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    function App (){
+        //이 강의에서는 컴포넌트에 State를 하나 더 추가해줬다.
+        //const [minutes, setMinutes] = React.useState(0);
+        const [amount, setAmount] = React.useState(0);
+        //이 새로운 state는 우리가 invert 했는지 안했는지를 확인해준다.
+        //invert란 Hours(시)를 Minutes(분)으로 단휘변환 해주는 걸 말한다.
+        //inverted false를 초기값으로 가지고 시작한다.
+        //const [flip, setFlip] =  React.useState(false);
+        const [inverted, setInverted] =  React.useState(false);
+        const onChange = (e) => {
+            //우리가 입력한 input에 입력한 값을 state에 전달한다.
+            setAmount(e.target.value)
+        }
+        const reset = () => setAmount(0)
+        //그리고 onFlip이라는 함수를 새로 만들었는데 inverted 반대로 전환시키는 역할을 한다
+        //inverted true라면 false로 바꿔주고 false이면 true로 바꿔준다.
+        //inverted 매우 중요한데 input의 disabled또는 enabled로 바꿔줄 수 있다. (input의 상태에 따라서)
+        const onInvert = () => {
+            reset()
+            setInverted((current) => !current)
+        }
+        return(
+            <div>
+                <h1>Super Converter(시/분 변환기)</h1>     
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    
+                    {/* minutes input에서 만약 inverted 상태라면, 시에서 분으로 변환 */}
+                    <input 
+                    /* inverted true라면  Minutes input은  disabled가 된다*/
+                    value={inverted ? amount * 60 : amount}
+                    id="minutes" 
+                    placeholder="Minutes" 
+                    type="number"
+                    onChange={onChange}
+                    /* true,false에 따라 enable,disable시킬 수 있다. */
+                    disabled={inverted} 
+                    />                
+                    분
+                </div>
+                
+                <div>
+                    <label htmlFor="hours">Hours</label>       
+                    {/* hours input에서 만약 inverted 상태라면 시에서 분단위로 변환하고 있는 상태 amount값을 보여주고 true면 amount/60값을 보여준다. 만약 inverted 상태라면 amount *60 inverted 상태가 아니라면 그냥 입력결과값*/}  
+                    <input 
+                    value={inverted ? amount : Math.round(amount/60)}
+                    id="hours" 
+                    placeholder="Hours" 
+                    type="number"
+                    disabled={!inverted} 
+                    onChange={onChange}
+                    />             
+                    시간       
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>
+                    {inverted  ? "Turn back" :"Invert"}
+                </button>
+            </div> 
+        )
+    }
+    
+    const root = document.getElementById("root");
+    ReactDOM.render(<App/>, root);
+</script>
+</html>
+
+<!-- 3.8 Recap  Invert:거꾸로하다 Converter:변환기-->
+
+
+
+
+
