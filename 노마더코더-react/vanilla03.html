@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>   
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">    
+    const root = document.getElementById("root");
+    function App (){
+        const [minutes, setMinutes] = React.useState();
+        const onChange = (e) => {
+            //e.target = documet.getelement어쩌고저쩌고...  해줄필요가 없음 
+            //console.log(e.target.value); e.target.value을 함수로 만들자!
+            setMinutes(e.target.value)
+        }
+        return(
+            <div>
+                {/* 이렇게 
+                <h1>Super Converter</h1>     
+                <label for="minutes">Minutes</label>
+                <input id="minutes" plceholder="Minutes" type="number"/>  
+                <label for="hours">Hours</label>         
+                <input id="hours" plceholder="Hours" type="number"/>
+                적으면 오류가 남 but 지금은 괜찮음 왜냐면 cdn이 production버전이기 때문에 개발자 모드로 바꾸면 for에서 에러가 뜨는데  for,class 은 javascript용어이기때문 htmlFor, className으로 대체해야함*/}
+                <h1 className="hi">Super Converter</h1>     
+                <label htmlFor="minutes">Minutes</label>
+                <input 
+                value={minutes}
+                id="minutes" 
+                placeholder="Minutes" 
+                type="number"
+                onChange={onChange}
+                />  
+                <h4>Tou want to convert{minutes}</h4>
+                <label htmlFor="hours">Hours</label>         
+                <input id="hours" placeholder="Hours" type="number"/>           
+            </div> 
+        )
+    }
+
+    ReactDOM.render(<App/>, root);
+</script>
+</html>
+
+<!-- ~ 3.5 Inputs and State -->
+
+
+
+
+
