@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>2022.10.11</title>
+    <title>2022.10.12</title>
 </head>
 <body>
-    <!-- input의 유효성을 검사하기 위해서는 input이 form안에 있어야 함-->
-    <form id="login-form">
+    <form id="login-form" class="hidden">
         <input 
         require
         maxlength="15"
@@ -18,9 +17,15 @@
         />
         <input type="submit" value="로그인" />
     </form>
-    
-
-    <script src="./js/app.js"></script>
+    <h1 id="greeting" class="hidden"></h1>
+    <script src="./js/greeting03.js"></script>
 </body>
 </html>
-<!-- 4.0 Input Values, 4.1 Form Submission, 4.2 Events-->
+
+<!-- 4.5 Saving Username 4.6 Loading Username 4.7 Super Recap-->
+<!-- 
+console 창에
+localStorage.setItem("username","hy") => 저장
+localStorage.getItem("username") => 불러옴 
+localStorage.removeItem("username") => 삭제 
+-->
