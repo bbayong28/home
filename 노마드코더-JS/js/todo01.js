@@ -11,6 +11,7 @@ function saveToDos() {
 }
 
 /* 7.2 */
+//삭제
 function deleteToDo(event) { 
     //console.dir(event.target.parentElement)
     const li = event.target.parentElement;
@@ -20,12 +21,12 @@ function deleteToDo(event) {
 /* 7.1 7.2 */
 function paintToDo(newToDo) {
     //console.log("i will paint", newToDo)
-    const li = document.createElement("li")
-    const span = document.createElement("span")
+    const li = document.createElement("li");
+    const span = document.createElement("span");
     span.innerText = newToDo;
-    const button = document.createElement("button")
+    const button = document.createElement("button");
     button.innerText = "X"
-    button.addEventListener("click", deleteToDo)
+    button.addEventListener("click", deleteToDo);
     li.appendChild(span);
     li.appendChild(button);
     //console.log(li)

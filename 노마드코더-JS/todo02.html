@@ -29,38 +29,34 @@
     <script src="./js/click02.js"></script>
     <script src="./js/quotes02.js"></script>
     <script src="./js/background01.js"></script>
-    <script src="./js/todo01.js"></script>
+    <script src="./js/todo02.js"></script>
 </body>
 
 </html>
 
 <!-- 
-    7.0 Setup 
-    7.1 Adding ToDos 
-    7.2 Deleting ToDos 
-    7.3 Saving ToDos
+    7.4 Loading To Dos part One
+    7.5 Loading To Dos part Two
+    7.6 Loading To Dos part Two
 -->
 
 
-<!-- 
-    7.2 에서는 리스트를 삭제하는 방법을 배우는데 무엇을 삭제해야할지 정할 때 어려움  
-    이부분 다시공부! 
-    const li = event.target.parentElement;
-    li.remove();
-
-    7.3 에서는 localStorage를 사용해서 저장을 할것이다.
-    어려우니 다시 듣기
--->
 
 <!-- 
-    JSON.stringify() -> JavaScript 값이나 객체를 JSON 문자열로 변환
-    예시
-    console.log(JSON.stringify({ x: 5, y: 6 }));
-    // expected output: "{"x":5,"y":6}"
-    console.log(JSON.stringify([new Number(3), new String('false'), new Boolean(false)]));
-    // expected output: "[3,"false",false]"
+    7.4
     console에 
     JSON.stringify([1, 2, 3, 4])를 치면
-    -> "[1, 2, 3, 4]"로 반환해줌
+    -> "[1, 2, 3, 4]"로 반환해줌(array->string으로 변환)
+    
+    console에
+    JSON.parse("[1, 2, 3, 4]")를 치면
+    -> (4)[1, 2, 3, 4]로 반환해줌(string->array로 변환)
 
- -->
+    7.5
+    새로운 값이 추가되면 그 겂만 들어오고 기존 값은 사라짐.
+    이걸 해결!
+
+    7.6 
+    ToDo를 지울 때 마다 local storage에 업데이트를 하지 않음. 
+
+-->
