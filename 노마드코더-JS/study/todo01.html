@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>2022.10.12</title>
+</head>
+
+<body>
+
+    <h2 id="clock">00:00:00</h2>
+    <form id="login-form" class="hidden">
+        <input require maxlength="15" type="text" placeholder="성함이 무엇입니까?" />
+        <input type="submit" value="로그인" />
+    </form>
+    <form id="todo-form">
+        <input type="text" placeholder="Write a To Do and Press Enter" required>
+    </form>
+    <ul id="todo-list"></ul>
+    <div id="quote">
+        <p></p>
+        <p></p>
+    </div>
+    <h1 id="greeting" class="hidden"></h1>
+    <script src="./js/greeting04.js"></script>
+    <script src="./js/click02.js"></script>
+    <script src="./js/quotes02.js"></script>
+    <script src="./js/background01.js"></script>
+    <script src="./js/todo01.js"></script>
+</body>
+
+</html>
+
+<!-- 
+    7.0 Setup 
+    7.1 Adding ToDos 
+    7.2 Deleting ToDos 
+    7.3 Saving ToDos
+-->
+
+
+<!-- 
+    7.2 에서는 리스트를 삭제하는 방법을 배우는데 무엇을 삭제해야할지 정할 때 어려움  
+    이부분 다시공부! 
+    const li = event.target.parentElement;
+    li.remove();
+
+    7.3 에서는 localStorage를 사용해서 저장을 할것이다.
+    어려우니 다시 듣기
+-->
+
+<!-- 
+    JSON.stringify() -> JavaScript 값이나 객체를 JSON 문자열로 변환
+    예시
+    console.log(JSON.stringify({ x: 5, y: 6 }));
+    // expected output: "{"x":5,"y":6}"
+    console.log(JSON.stringify([new Number(3), new String('false'), new Boolean(false)]));
+    // expected output: "[3,"false",false]"
+    console에 
+    JSON.stringify([1, 2, 3, 4])를 치면
+    -> "[1, 2, 3, 4]"로 반환해줌
+
+ -->
