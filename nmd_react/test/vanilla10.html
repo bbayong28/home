@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Super Converter</title>
+
+<body>
+    <div id="root"></div>
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    
+
+/*  fontSize = 14해 놓으면 props값이 없어도 기본으로 14로 설정됨 */
+    function Btn({ text , fontSize = 14 }){
+        return(
+            <button
+                style={{
+                    backgroundColor: "tomato",
+                    color: "white",
+                    padding: "10px 20px",
+                    borderRadius: 10,
+                    border: 0,
+                    fontSize,
+
+                }}>
+                {text}
+            </button>              
+        );
+    }
+    /* 
+    script에 "https://unpkg.com/prop-types@15.7.2/prop-types.js" 이거 설치해야만 프로토 타입으로 잘못썻는지 잘썼는지 콘솔에 에러 띄어줌
+    isRequired는 컴포넌트가 이 두 props들만을 정확히 갖고 render 될 것이라는 걸 확실히 하고 싶을 때 사용
+    */
+    Btn.propTypes = {
+        text: PropTypes.string, isRequired,
+        fontSize: PropTypes.number, 
+    }
+    function App() {
+        return (
+            <div>
+                <Btn text = "Save Changes" fontSize={18} />
+                {/* <Btn text = {14} fontSize={"Continue"} /> */}
+                {/* <Btn fontSize = {14} text={"Continue"} /> */}
+                <Btn text={"Continue"} />
+
+            </div>
+        )
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+
+</html>
+
+<!-- 
+    4.2 
+-->
