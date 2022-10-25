@@ -9,5 +9,17 @@ li{
     list-style: none;
 }
 .Wrap{
-    
+    border: 2px solid #ddd;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;   
+    position: relative;
+}
+.Wrap > .js_slider{
+    overflow: hidden;
+}
+
+.Wrap > .js_slider .slider{
+    position: relative;
+    transition: 0.5s;
 }
