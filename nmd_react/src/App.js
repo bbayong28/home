@@ -1,62 +1,37 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react"
 
-//  function Hello() {
-//    
-//    useEffect(() => {
-//      //버튼을 클릭하면 console에 create가 찍히고 
-//      console.log("created :)");
-//      //또다시 버튼을 클릭하면 console에 destroy가 찍힘 -> 즉 funcitono을 파괴할때 , function이 없어질때 destroy를 하고 싶었음.
-//      // 그럴땐 return 함수를 써줌. 이렇게하면 show하면서  create가, hide 하면서 destroy가 콘솔에 찍힘
-//      // 이런 return()=> console.log("destroy :(")함수를 Cleanup function 이라고 부름
-//      return()=> console.log("destroy :(")
-//    },[])
-//    return<h1>Hello</h1>
-//  }
-
-
-// function Hello() {
-//   function byeFn() {
-//     console.log("Bye :(")
-//   }
-//   function hiFn() { 
-//     console.log("Hi :)");
-//     //이 component가 언제 파괴될 지도  알고 싶으면 hiFn을 return해주어야 함 -> 이게  cleanup function
-//     return byeFn;
-//   }
-//   
-//   useEffect(hiFn,[])
-//   return<h1>Hello</h1>
-// }
-
-function Hello() {
-
-  useEffect(function () {
-    console.log("hi:)");
-    return function () {
-      console.log("bye:(");
-    };
-  }, []);
-
-
+function App() { 
+  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState([]);
   useEffect(() => {
-    console.log("hi:)");
-    return () => console.log("bye:(");
-  }, []);  
+    //개발자도구 열어서 Network가면 tickers 있음. 많은 코인 정보를 받았음.
+    //response로 부터 json을 추출해내고 싶음  .then을 써줌
+    fetch("https://api.coinpaprika.com/v1/tickers")
+      .then((response) => response.json())
+      //.then((json) => console.log(json)); -> (2500) 어떻게 하면 이 데이터 들을 component에 보여줄 수 있을까? 이 데이터를 state에 넣으면 된다!!!!
+      .then((json) => {
+        setCoins(json);
+        setLoading(false);
+      });
+  }, []);
   
-  return<h1>Hello</h1>
-}
-
-
-
-function App() {  
-  const [showing, setShowing] = useState(false); 
-  const onClick = () => setShowing((prev) => !prev)
   return (
     <div>
-      { showing ? <Hello/> : null}
-      <button onClick={onClick}>{ showing? "Hide" : "Show"}</button>
+      <h1>The Conins! {loading ? "" : `(${coins.length})`}</h1>
+      {loading ? (
+        <strong>Loading....</strong>
+      ) : (
+      <select>
+          {coins.map((coin) => (
+              <option>
+                {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
+              </option>
+            ))}
+        </select>
+      )}
+      
     </div>
-  );
-}
+  )
+} 
 
 export default App;
