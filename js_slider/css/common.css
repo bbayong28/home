@@ -8,36 +8,45 @@
 li {
   list-style: none;
 }
+body{
+    padding: 100px 0;
+}
+
+.title h1{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 .wrap {
-  border:2px solid black; 
-  width:100%; 
-  max-width:800px; 
-  margin:0 auto; 
-  position: relative;
+    position: relative;
+    border:2px solid black; 
+    width:100%; 
+    max-width:800px; 
+    margin:0 auto; 
 }
 .wrap > .js_slider {
-   overflow: hidden;
+    overflow: hidden;
 }
 .wrap > .js_slider .slider { 
- position: relative; 
-  transition: 0.5s;
+    position: relative; 
+    transition: 0.5s;
 }
 .wrap > .js_slider .slider li {
-  float:left;
+    float:left;
 }
 .wrap > .js_slider img {
-  vertical-align: top;
+    vertical-align: top;
 }
 .wrap .arrow > i.xi-arrow-left {
-  position: absolute; 
-  left:-100px; 
-  top:80px;
-  font-size:50px;
+    position: absolute; 
+    left:-100px; 
+    top:80px;
+    font-size:50px;
 }
 .wrap .arrow > i.xi-arrow-right {
-  position: absolute; 
-  right:-100px; 
-  top:80px;
-  font-size:50px;
+    position: absolute; 
+    right:-100px; 
+    top:80px;
+    font-size:50px;
 } 

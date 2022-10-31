@@ -6,6 +6,9 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 const bgImages = document.createElement("img");
 
 bgImages.src = `./img/${chosenImage}`
+bgImages.classList.add('bg_img')
+//bgImages.style.width = "100%"
+//bgImages.style.height = "100vh"
 
 //console.log(bgImages);
 
