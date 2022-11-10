@@ -33,5 +33,5 @@
 
 }
 
-append 붙이면 loop됨
+/* append 붙이면 loop됨 */
  
