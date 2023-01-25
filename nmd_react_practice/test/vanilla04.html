@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>   
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">    
+    const root = document.getElementById("root");
+    function App (){
+        //state의 결과는 array이고 첫번째 요소는 데이터, 두번째 요소는 데이터를 수정하기 위한 함수!!
+        const [amount, setAmount] = React.useState(0);
+        const [flipped, setFlipped] =  React.useState(false);
+        const onChange = (e) => {
+            //e.target = documet.getelement어쩌고저쩌고...  해줄필요가 없음 
+            //console.log(e.target.value); e.target.value을 함수로 만들자!
+            setAmount(e.target.value)
+        }
+        const reset = () => setAmount(0)
+        //const onFlip = () => setFlipped(!flipped)
+        const onFlip = () => {
+            reset()
+            setFlipped((current) => !current)
+        }
+        return(
+            <div>
+                {/* 이렇게 
+                <h1>Super Converter</h1>     
+                <label for="minutes">Minutes</label>
+                <input id="minutes" plceholder="Minutes" type="number"/>  
+                <label for="hours">Hours</label>         
+                <input id="hours" plceholder="Hours" type="number"/>
+                적으면 오류가 남 but 지금은 괜찮음 왜냐면 cdn이 production버전이기 때문에 개발자 모드로 바꾸면 for에서 에러가 뜨는데  for,class 은 javascript용어이기때문 htmlFor, className으로 대체해야함*/}
+                <h1 className="hi">Super Converter</h1>     
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input 
+                    value={flipped ? amount * 60 : amount}
+                    id="minutes" 
+                    placeholder="Minutes" 
+                    type="number"
+                    onChange={onChange}
+                    /* disabled={flipped === true} 좀더 짧게 쓰는 법 밑에! */ 
+                    disabled={flipped} 
+                    />                
+                    분
+                </div>
+                
+                {/* <h4>Tou want to convert{minutes}</h4> */}
+                <div>
+                    <label htmlFor="hours">Hours</label>         
+                    <input 
+                    //이렇게쓰면 반올림 함
+                    //value={Math.round(minutes/60)}
+                    //value={minutes/60}
+                    value={flipped ? amount : Math.round(amount/60)}
+                    id="hours" 
+                    placeholder="Hours" 
+                    type="number"
+                    /* disabled={flipped === false}  좀더 짧게 쓰는 법 밑에!*/
+                    disabled={!flipped} 
+                    onChange={onChange}
+                    />             
+                    시간       
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>Flip</button>
+            </div> 
+        )
+    }
+
+    ReactDOM.render(<App/>, root);
+</script>
+</html>
+
+<!-- 3.6 State Prectice part One ~ 3.7 State Prectice part Two-->
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>   
+</body>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    //state의 결과는 array이고 첫번째 요소는 데이터, 두번째 요소는 데이터를 수정하기 위한 함수!!
+    //useState를 쓰면 데이터가 바뀔때마다 새로운 값을 가지고 컴포넌트를 리렌더링하고 UI를 refresh함.
+    //
+    function App (){
+        const [counter, setCounter] = React.useState(0);
+        //const data = React.useState();
+        //state 결과는 배열(array)
+        //console.log(data)//(2)[undefined, f] undefined -> data/초기값  f->data를 바꿀때 사용하는 함수/초기값을 바꾸는 함수
+        const onClick = () => {
+            //현재 state를 기반으로 계산하고 싶다면 둘다 사용해도 되지만 current쓰는게 더 안전함.
+            //setCounter(counter + 1)
+            setCounter((current) => current + 1)
+        };
+        //modifier함수를 가지고 state를 변경할  때 컴포넌트가 재 생성됨. -> 새로운 값을 가지고 리렌더링 되는것
+        //아래 콘솔을 찍고 click me를 누를때마다 rendered이 찍히고 counter에는 증가 값이 찍힘.
+        console.log("rendered")
+        console.log(counter)
+        return(
+            <div>
+                <h3>Total clicks: {counter} </h3>
+                <button onClick={onClick}>Click me!!!</button>
+            </div> 
+        )
+    }
+
+    ReactDOM.render(<App/>, root);
+</script>
+</html>
+
+
+
+
+

@@ -1,0 +1,52 @@
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+* {
+  margin:0; 
+  padding:0;
+}
+
+li {
+  list-style: none;
+}
+body{
+    padding: 100px 0;
+}
+
+.title h1{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrap {
+    position: relative;
+    border:2px solid black; 
+    width:100%; 
+    max-width:800px; 
+    margin:0 auto; 
+}
+.wrap > .js_slider {
+    overflow: hidden;
+}
+.wrap > .js_slider .slider { 
+    position: relative; 
+    transition: 0.5s;
+}
+.wrap > .js_slider .slider li {
+    float:left;
+}
+.wrap > .js_slider img {
+    vertical-align: top;
+}
+.wrap .arrow > i.xi-arrow-left {
+    position: absolute; 
+    left:-100px; 
+    top:80px;
+    font-size:50px;
+}
+.wrap .arrow > i.xi-arrow-right {
+    position: absolute; 
+    right:-100px; 
+    top:80px;
+    font-size:50px;
+} 

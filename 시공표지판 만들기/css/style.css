@@ -1,0 +1,45 @@
+table,th,td{
+    font-size: 13px;
+    border:1.5px solid #333;
+    background:rgb(252, 237, 11);
+    border-collapse:collapse;
+    letter-spacing: 12px;
+    /* 
+    표의 테두리와 셀의 테두리 사이 간격을 어떻게 처리할지 결정하는
+    css 속성
+    collapse : table, td 테두리 사이 간격을 없애줌
+    */
+}
+
+th{
+    width:200px;
+    text-align:justify;
+}
+.name{
+    width:65px;
+    text-align:center;
+    letter-spacing: 1px;
+}
+td{
+    width:350px;
+    text-align:left;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+td .foot{
+    font-size: 12px;
+    font-weight: 900;
+    text-align: left;
+    margin: 5px;
+}
+td p{
+    font-size: 8px;
+    margin: 5px;
+}
+td .last{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: -1px;
+    margin: 5px;
+}

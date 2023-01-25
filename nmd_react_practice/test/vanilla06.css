@@ -1,0 +1,90 @@
+body{
+    background: #0088a9;
+}
+*{
+    color: #24252A;
+}
+#root{
+    padding: 300px 0 100px 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.Page h1{
+    font-size: 80px;
+    color: #fff;   
+    margin-bottom: 20px;
+}
+
+.Page select{
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+}
+.MH,
+.MK{
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.M,
+.H,
+.Mi,
+.Ki {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.M,
+.Mi{
+    margin: 35px 0 10px 0;
+}
+.H,
+.Ki {
+    margin-bottom: 20px;
+}
+
+.M label,
+.Mi label,
+.H label,
+.Ki label{
+    font-size: 20px;
+    font-weight: 600;
+}
+#minutes,
+#hours,
+#mile,
+#kilometer{
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 3px 5px;
+    width: 90px;
+}
+
+.reset{
+    margin-right: 15px;
+}
+.reset,
+.onInvert{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    font-weight: 500;
+    background: #24252A;
+    color: #fff;
+}
+.reset:hover,
+.onInvert:hover{    
+    background: #fff;
+    color: #0088a9;
+}

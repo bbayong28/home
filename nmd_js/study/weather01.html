@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>2022.10.12</title>
+</head>
+
+<body>
+
+    <h2 id="clock">00:00:00</h2>    
+    <form id="login-form" class="hidden">
+        <input require maxlength="15" type="text" placeholder="성함이 무엇입니까?" />
+        <input type="submit" value="로그인" />
+    </form>    
+    <h1 id="greeting" class="hidden"></h1>
+    <form id="todo-form">
+        <input type="text" placeholder="Write a To Do and Press Enter" required>
+    </form>
+    <ul id="todo-list"></ul>
+    <div id="quote">
+        <p></p>
+        <p></p>
+    </div>
+    <div id="weather">
+        <span></span>
+        <span></span>
+    </div>
+    <script src="./js/greeting04.js"></script>
+    <script src="./js/click02.js"></script>
+    <script src="./js/quotes02.js"></script>
+    <script src="./js/background01.js"></script>
+    <script src="./js/todo03.js"></script>
+    <script src="./js/weather01.js"></script>
+</body>
+
+</html>
+
+<!-- 
+    8.0 Geolocation
+    8.1 Weather API
+-->
+
+
+
+<!-- 
+    8.0
+    Geolocation
+    getCurrentPosition는 2개의 인자가 필요하다
+    하나는 모든 게 잘 됐을 때 실행 될 함수
+    하나는 에러가 발생했을 때 실행 될 함수
+    navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+    8.1
+    API 받아올 주소 : openweathermap.org
+    API는 다른 서버와 이야기할 수 있는 방법
+    https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+    https://api.openweathermap.org/data/2.5/weather?lat=35.209216&lon=129.0633216&appid=69312e4bcce28b39752638a4f8b2ebe9 -> 화씨온도
+    https://api.openweathermap.org/data/2.5/weather?lat=35.209216&lon=129.0633216&appid=69312e4bcce28b39752638a4f8b2ebe9&unit=metric -> 섭씨온도
+    unit=metric붙이면 섭씨온도로 바꿔줌
+
+    fetch()
+    fetch는 promise다 promise는 당장 뭔가 일어나지 않고 시간이 좀 걸린 뒤에 일어나는 거야. 서버에 뭔가 물어봤는데 응답하는데 5분걸린다 고해보자 그러면 서버의 응답을 기다려야해. 그래서 then을 사용하는데 
+    그러면 URL을 fetch하고 그 다음으로 response를 받아야 한다. 그리고 response의 json을 얻어야 한다.
+
+-->

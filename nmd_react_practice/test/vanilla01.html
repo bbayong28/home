@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+    
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script> 
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> 
+    <script>
+        const root = document.getElementById("root")
+        //const span = React.createElement("span");
+        //element는 h3 만들고 h3 id는 sexy-span으로 하고 글자색은 red, h3 내용엔 Hello!!!가 찍히게 하라
+        const h3 = React.createElement(
+            //element는 h3를 만들고
+            "h3", 
+            // h3 id는 sexy-span으로 하고 글자색은 red
+            // {id:"sexy-span", style:{color:"red"}}, 
+            {
+                id:'title',
+                onMouseEnter : () => console.log('mouse')
+            },     
+
+            //h3의 내용엔 Hello!!!가 찍히게 하라
+            "Hello!!!"
+            );
+        const btn = React.createElement("button", {
+            onClick:()=> console.log('i love you'),
+            style:{
+                backgroundColor:'pink'
+            }
+        },"Click me")
+
+        const container = React.createElement("div", null, [h3, btn])
+
+
+        //render의 의미 - 윗줄의 React element를 가지고 html로 만들어 배치한다는 것이다. -> "사용자에게 보여준다.!" 
+        //root안에 span을 보여달라.
+        //ReactDOM.render(span, root)
+        //ReactDOM.render(btn, root)
+        ReactDOM.render(container, root)
+
+    </script>
+ 
+</html>

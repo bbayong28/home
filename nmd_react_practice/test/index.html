@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Total clicks : 0</span>
+    <button id="btn">Click me!</button>
+    <script>
+        let counter = 0;
+        const button  = document.getElementById('btn');
+        const span = document.querySelector('span')
+        function handleClick(){
+            //console.log("happy day~!")
+            counter = counter + 1
+            console.log(counter);
+            //span.innerText = `Total clicks :` + counter 내가해본거 작동은 됨 근데 밑에 선생님 대로 하는게 더 깔끔함;
+            span.innerText = `Total clicks : ${counter}`;
+        }
+        button.addEventListener('click', handleClick)
+    </script> 
+</body>
+</html>
