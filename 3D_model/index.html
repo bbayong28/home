@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- <html lang="ko"> -->
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>3D Car</title>
+</head>
+<body>
+  
+  
+  <canvas id="canvas" width="700" height="700"></canvas>
+  
+  <!-- 
+  react, vue에 import 했을 때
+  npm install three로 설치 
+  -->
+
+  <!-- 그냥 html이면 이렇게 적어주면 npm으로 설치한 것처럼 사용가능 -->
+  <script type="importmap">
+    {
+      "imports": {
+      "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+      "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+
+<!--   
+  react, vue에 import 했을 때
+  import {GLTFLoader} from '/three/examples/jsm/loaders/GLTFLoader';
+-->
+  <script type="module">
+    import * as THREE from 'three'
+    import {GLTFLoader} from 'GLTFLoader';
+    
+    //3D model 브라우저에 보여주는 법
+    //1. 장면 만들고 
+    //2. 브라우저에 렌더링 해주세요
+
+    let scene = new THREE.Scene();
+    //scene.add(정육면체)
+    //scene.add(원)
+
+    let renderer = new THREE.WebGLRenderer({
+      canvas : document.querySelector('#canvas'),
+      //테두리 계단현상
+      antialias : true
+      //scene.add(해골)
+    });
+    //색상정보
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    //3D model 보여줄 때 필요한 것들
+    //1.카메라 2.조명 3.배경
+
+    //1.카메라 셋팅
+    //카메라 종류 PerspectiveCamera(원근법 적용O), OrthographicCamera(원근법 적용X)
+    let camera = new THREE.PerspectiveCamera(50, 1);
+    camera.position.set(0,0,10);
+
+    scene.background = new THREE.Color('white');
+    //조명
+    //조명 종류 AmbientLight, PointLight, DirectionLight
+    //let light = new THREE.DirectionalLight(0xff607d8b ,20);
+    let light = new THREE.DirectionalLight(0xf1f1f1,20);
+    scene.add(light);
+
+
+    //.GLTF파일 가져오는 법
+    let loader = new GLTFLoader();
+    loader.load('car/scene.gltf', function(gltf){
+      scene.add(gltf.scene)
+      //renderer.render(scene, camera);
+      
+      function animate(){
+        requestAnimationFrame(animate)
+        gltf.scene.rotation.y -= 0.01        
+        //gltf.scene.rotation.x -= 0.1  
+        
+        //마우스 컨트롤? Three.js내의 OrbitControl 가져다 쓰셈
+
+        renderer.render(scene, camera);
+      }
+      animate()
+
+    });
+
+
+    
+
+  </script> 
+
+
+</body>
+</html>
